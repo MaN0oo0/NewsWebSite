@@ -1,4 +1,5 @@
 ﻿    <!-- ======= Contact Section ======= -->
+    @model Contact_Us
     <section id="contact" class="contact">
       <div class="container">
 
@@ -14,27 +15,23 @@
 
           <div class="col-lg-6">
             
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form asp-action="SaveContact" method="post" >
               <div class="row">
                 <div class="col form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required autocomplete="off">
+                  <input type="text" asp-for="Name" class="form-control"   placeholder="Your Name" required autocomplete="off">
                 </div>
                 <div class="col form-group ">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required autocomplete="off">
+                  <input type="email" asp-for="Email" class="form-control"  placeholder="Your Email" required autocomplete="off">
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required autocomplete="off">
+                <input type="text" class="form-control" asp-for="Subject"  placeholder="Subject" required autocomplete="off">
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required autocomplete="off"></textarea>
+                <textarea class="form-control" asp-for="Message" rows="5"  placeholder="Message" required autocomplete="off"></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              
+              <div class="text-center"><button type="submit"  style="background-color:#3FBBC0; color:white; outline:none;border:none; margin:20px auto ;padding:10px; border-radius: 4px;" >Send Message</button></div>
             </form>
      
           </div>

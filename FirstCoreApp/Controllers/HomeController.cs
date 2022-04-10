@@ -31,6 +31,15 @@ namespace FirstCoreApp.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SaveContact(Contact_Us model)
+        {
+            db.Contacts.Add(model);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
 
         public IActionResult About()
         {
@@ -40,6 +49,7 @@ namespace FirstCoreApp.Controllers
 
         public IActionResult Team()
         {
+
 
             return View();
         }
