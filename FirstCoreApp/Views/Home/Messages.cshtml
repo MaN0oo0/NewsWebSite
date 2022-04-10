@@ -1,0 +1,67 @@
+﻿@model List<Contact_Us>
+
+    @*<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+       @foreach (var item in Model)
+    {
+    <tr>
+      <th scope="row">@item.Id</th>
+      <td>@item.Name</td>
+      <td>@item.Subject</td>
+      <td>@item.Message</td>
+    </tr>
+     }
+  </tbody>
+   
+</table>*@
+
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+        
+        </div>
+        <center>
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        
+            <div class="row">
+           
+                @foreach (var item in Model)
+             {
+                 //----------
+
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                 @item.Message
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="../assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>@item.Name</h3>
+                <h4>@item.Subject</h4>
+              </div>
+
+              //-----------------
+
+              }
+              </div>
+            </div><!-- End testimonial item -->
+   </center>
+            </div>
+    </section><!-- End Testimonials Section -->
+
+
+   
+     
+  

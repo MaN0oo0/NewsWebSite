@@ -17,12 +17,13 @@ namespace FirstCoreApp.Controllers
         
         private readonly ILogger<HomeController> _logger;
 
+
     
 
         public IActionResult Index()
         {
-     var res = db.Catogeries.ToList();
-            return View(res);
+    
+            return View(db.Catogeries.ToList());
         }
 
         public IActionResult Contact()
@@ -37,7 +38,7 @@ namespace FirstCoreApp.Controllers
             db.Contacts.Add(model);
             db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("");
         }
 
 
@@ -55,10 +56,21 @@ namespace FirstCoreApp.Controllers
         }
 
 
-        public IActionResult Privacy()
+      
+        public IActionResult Messages()
         {
-            return View();
+            
+            return View(db.Contacts.ToList());
         }
+
+
+        public IActionResult News(int id)
+        {
+            //Loop to get CatogryName
+          var res =  db.News.Where(x => x.CatogeryId == id).ToList();
+            return View(res);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

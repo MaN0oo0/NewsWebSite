@@ -4,21 +4,30 @@
 @model List<Catogery>
 
 
-    <!-- ======= Featured Services Section ======= -->
+       <!-- ======= Featured Services Section ======= -->
+   
     <section id="featured-services" class="featured-services">
+         
       <div class="container" data-aos="fade-up">
-          
+         
         <div class="row">
-          @foreach(var item in Model)
-        {
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" style="width:100%; margin:20px auto" data-aos="fade-up" data-aos-delay="100">
+             @foreach(var item in Model){
+               
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                
+            <div class="icon-box" style="width:100% ;margin:20px auto" data-aos="fade-up" data-aos-delay="100">
               <div class="icon"><i class="fas fa-heartbeat"></i></div>
-              <h4 class="title"><a href="">   @item.Name </a></h4>
+              <a style="color:#762506e0" href="/Home/News/@item.Id">  <h4 class="title">@item.Name</h4></a>
               <p class="description">@item.Discription</p>
             </div>
+              
           </div>
+    
         }
- </div>
 
+        </div>
+        
+      </div>   
+         
     </section><!-- End Featured Services Section -->
+ 
