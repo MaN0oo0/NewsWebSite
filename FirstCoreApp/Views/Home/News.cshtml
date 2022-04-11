@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<News>
+
+    
+
+
+<section id="about" class="about">
+    
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>اخبار  @ViewBag.Cat</h2>
+              
+              
+            
+          
+
+        <div class="row">
+            @foreach (var item in Model)
+{
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="~/assets/img/about.jpg" class="img-fluid" style="width:200px;hight:200px; border-radius: 50%;" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>@item.Title</h3>
+            <p class="fst-italic">
+             @item.Topic
+            </p>
+            @*<ul>
+              <li><i class="bi bi-check-circle"></i> 
+              
+                  width: 250px;
+    hight: 100px border-reduis:50%;
+    border-radius: 50%;
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>*@
+            <p>
+             @item.date
+            </p>
+            <a class="btn btn-danger mt-4" href="/Home/DeleteNews/@item.Id">Delete</a>
+          </div>
+          <div style="margin:20px auto">
+            
+              <span><hr /></span>
+          </div>
+        
+               }
+        </div>
+
+      </div>
+   
+    </section><!-- End About Us Section -->

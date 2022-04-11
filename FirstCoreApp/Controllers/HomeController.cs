@@ -38,7 +38,7 @@ namespace FirstCoreApp.Controllers
             db.Contacts.Add(model);
             db.SaveChanges();
 
-            return RedirectToAction("");
+            return RedirectToAction("Index");
         }
 
 
@@ -66,9 +66,25 @@ namespace FirstCoreApp.Controllers
 
         public IActionResult News(int id)
         {
+            Catogery c = db.Catogeries.Find(id);
+            ViewBag.Cat = c.Name;
+            
             //Loop to get CatogryName
-          var res =  db.News.Where(x => x.CatogeryId == id).ToList();
+          var res =  db.News.Where(x => x.CatogeryId == id).OrderByDescending(x=>x.date).ToList();
             return View(res);
+        }
+
+
+
+        public IActionResult DeleteNews(int id)
+
+        {
+           var resalt = db.News.Find(id);
+            db.News.Remove(resalt);
+            db.SaveChanges();
+
+
+            return RedirectToAction("Index");
         }
 
 
